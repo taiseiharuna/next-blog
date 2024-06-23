@@ -21,7 +21,9 @@ const PostListByCategory: NextPage<{
         {postList!.map((post) => {
           return (
             <div key={post.id} className='w-1/3 pr-4 pb-4 [&:nth-of-type(3n)]:pr-0'>
-              <PostBox post={post} />
+              <Link href={`/posts/${post.id}`} >
+                  <PostBox post={post} />
+              </Link>
             </div>
           )
         })}
