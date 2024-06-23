@@ -25,7 +25,9 @@ const Page: NextPage<{
                 {postList!.map((post) => {
                     return (
                         <div key={post.id} className='w-1/3 pr-4 pb-4 [&:nth-of-type(3n)]:pr-0'>
+                        <Link href={`/posts/${post.id}`}>
                             <PostBox post={post} />
+                        </Link>
                         </div>
                     )
                 })}
@@ -41,7 +43,7 @@ const Page: NextPage<{
 }
 
 export async function getStaticPaths() {
-    const paths = await PostService.getAllPageList()
+    const paths = await PostService.getAllPageAndCategoryList()
     return {
         paths,
         fallback: false

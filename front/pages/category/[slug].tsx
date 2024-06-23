@@ -31,7 +31,7 @@ const PostListByCategory: NextPage<{
 }
 
 export async function getStaticPaths() {
-    const paths = await PostService.getAllCategorySlugList()
+    const paths = await PostService.getAllPageAndCategoryList()
     return {
         paths,
         fallback: false,

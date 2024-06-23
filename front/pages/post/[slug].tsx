@@ -31,9 +31,7 @@ const Post: NextPage<{
                     <div className="flex mb-4">
                         <div className="mr-3">
                             <Link href={post!.category.slug}>
-                                <a>
                                     <CategoryLabel>{post!.category.name}</CategoryLabel>
-                                </a>
                             </Link>
                         </div>
                         <DateText>{post!.date}</DateText>
