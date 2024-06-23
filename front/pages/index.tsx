@@ -1,6 +1,6 @@
 import type { NextPage } from 'next'
 // type
-import PostType from '../types/PostType'
+import PostOnListType from '../types/PostOnListType'
 // service
 import PostService from '../services/PostService'
 // hooks
@@ -10,7 +10,7 @@ import PostBox from '../components/molecules/PostBox'
 import Layout from '../components/templates/Layout'
 
 const Home: NextPage<{
-  staticPostList: PostType[]
+  staticPostList: PostOnListType[]
 }> = ({ staticPostList }) => {
   const postList = usePostListSwr(staticPostList)
   return (

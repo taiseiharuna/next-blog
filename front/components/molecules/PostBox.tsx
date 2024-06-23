@@ -1,9 +1,9 @@
 // type
-import PostType from "../../types/PostType"
+import PostType from "../../types/PostOnListType"
 // component
 import CommImage from "../atoms/image/CommImage"
 import CategoryLabel from "../atoms/label/CategoryLabel"
-import ArticleHeading from "../atoms/text/ArticleHeading"
+import ArticleOnListHeading from "../atoms/text/ArticleOnListHeading"
 import DateText from "../atoms/text/DateText"
 
 const PostBox = ({ post }: {
@@ -25,7 +25,7 @@ const PostBox = ({ post }: {
                     <DateText>{post.date}</DateText>
                 </div>
                 <div className="mb-2">
-                    <ArticleHeading>{post.title}</ArticleHeading>
+                <ArticleOnListHeading>{post.title}</ArticleOnListHeading>
                 </div>
                 <div dangerouslySetInnerHTML={{__html: post.excerpt}}></div>
             </div>
