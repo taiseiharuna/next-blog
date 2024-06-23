@@ -1,26 +1,37 @@
 import type { NextPage } from 'next'
-import PostService from '../services/PostService'
+// type
 import PostType from '../types/PostType'
+// service
+import PostService from '../services/PostService'
+// hooks
+import usePostListSwr from '../hooks/swr/usePostListSwr'
+// component
+import PostBox from '../components/molecules/PostBox'
 
 const Home: NextPage<{
-  staticPostList: PostType[] // 型の指定をする場所に注意！
+  staticPostList: PostType[]
 }> = ({ staticPostList }) => {
-
+  const postList = usePostListSwr(staticPostList)
   return (
-    <div>
-      {staticPostList.map((post) => {
-        return <p key={post.id}>{post.title}</p> // 一個ずつ表示させる
+    <div className='flex flex-wrap w-main mx-auto'>
+      {postList!.map((post) => {
+        return (
+          <div key={post.id} className='w-1/3 pr-4 pb-4 [&:nth-of-type(3n)]:pr-0'>
+            <PostBox post={post} />
+          </div>
+        )
       })}
     </div>
   )
 }
 
 export async function getStaticProps() {
-  const staticPostList = await PostService.getList(); // postListをとってくる
+  const staticPostList = await PostService.getList();
   return {
     props: {
-      staticPostList
-    }
+      staticPostList: staticPostList
+    },
+    revalidate: 10
   }
 }
 
