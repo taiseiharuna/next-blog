@@ -23,7 +23,7 @@ const PostBox = ({ post }: {
             <div className='py-4 px-5'>
                 <div className="flex mb-2">
                     <div className="mr-2">
-                        <Link href={`/category/${post.category.slug}`}>
+                        <Link href={`/category/${post!.category.slug}`}>
                         <CategoryLabel>{post.category.name}</CategoryLabel>
                         </Link>
                     </div>

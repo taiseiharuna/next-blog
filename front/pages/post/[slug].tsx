@@ -30,8 +30,8 @@ const Post: NextPage<{
                     </div>
                     <div className="flex mb-4">
                         <div className="mr-3">
-                            <Link href={post!.category.slug}>
-                                    <CategoryLabel>{post!.category.name}</CategoryLabel>
+                            <Link href={`/category/${post!.category.slug}`}>
+                            <CategoryLabel>{post?.category.name}</CategoryLabel>
                             </Link>
                         </div>
                         <DateText>{post!.date}</DateText>
